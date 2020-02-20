@@ -2,7 +2,14 @@
   <section class="todoapp" id="app">
     <header class="header">
       <h1>todos</h1>
-      <input class="new-todo" autofocus autocomplete="off" placeholder="What needs to be done?">
+      <input
+        class="new-todo"
+        autofocus
+        autocomplete="off"
+        v-model="newTodo"
+        v-on:keyup.enter="addTodo"
+        placeholder="What needs to be done?"
+      >
     </header>
     <section class="main" v-cloak>
       <input id="toggle-all" class="toggle-all" type="checkbox">
@@ -40,8 +47,20 @@
 export default {
   data() {
     return {
+      newTodo: "",
       todos: [{ title: "宿題" }, { title: "さいたまにいく" }]
     };
+  },
+  methods: {
+    addTodo() {
+      if (!this.newTodo) {
+        return;
+      }
+      this.todos.push({
+        title: this.newTodo
+      });
+      this.newTodo = null;
+    }
   }
 };
 </script>
