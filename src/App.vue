@@ -8,7 +8,7 @@
       <input id="toggle-all" class="toggle-all" type="checkbox">
       <label for="toggle-all"></label>
       <ul class="todo-list">
-        <li class="todo">
+        <li class="todo" v-for="todo in todos">
           <div class="view">
             <input class="toggle" type="checkbox">
             <label>{{ todo.title }}</label>
@@ -40,9 +40,7 @@
 export default {
   data() {
     return {
-      todo: {
-        title: "宿題しよ"
-      }
+      todos: [{ title: "宿題" }, { title: "さいたまにいく" }]
     };
   }
 };
