@@ -53,9 +53,13 @@ export default {
   },
   methods: {
     addTodo() {
+      if (!this.newTodo) {
+        return;
+      }
       this.todos.push({
         title: this.newTodo
       });
+      this.newTodo = null;
     }
   }
 };
