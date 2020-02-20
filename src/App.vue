@@ -15,9 +15,9 @@
       <input id="toggle-all" class="toggle-all" type="checkbox">
       <label for="toggle-all"></label>
       <ul class="todo-list">
-        <li class="todo" v-for="todo in todos">
+        <li class="todo" v-for="todo in todos" v-if="!todo.completed">
           <div class="view">
-            <input class="toggle" type="checkbox">
+            <input class="toggle" type="checkbox" v-model="todo.completed">
             <label>{{ todo.title }}</label>
             <button class="destroy"></button>
           </div>
@@ -48,7 +48,10 @@ export default {
   data() {
     return {
       newTodo: "",
-      todos: [{ title: "宿題" }, { title: "さいたまにいく" }]
+      todos: [
+        { title: "宿題", completed: false },
+        { title: "さいたまにいく", completed: false }
+      ]
     };
   },
   methods: {
