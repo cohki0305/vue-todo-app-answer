@@ -11,7 +11,7 @@
         <li class="todo">
           <div class="view">
             <input class="toggle" type="checkbox">
-            <label>TODO</label>
+            <label>{{ todo.title }}</label>
             <button class="destroy"></button>
           </div>
         </li>
@@ -37,7 +37,15 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      todo: {
+        title: "宿題しよ"
+      }
+    };
+  }
+};
 </script>
 
 <style>
